@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gray-Scott Pattern Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="main-layout">
+    
+    <!-- 🧮 Left: Form Section -->
+    <div class="form-section">
+      <h1>Gray-Scott Pattern Generator</h1>
+      <form id="patternForm">
+
+        <div class="form-group">
+          <label for="fInput">F (Feed rate)</label>
+          <input id="fInput" type="number" name="F" min="0.01" max="0.1" step="0.001" value="0.04" required>
+          <div class="hint">Recommended range: 0.01 – 0.1</div>
+        </div>
+
+        <div class="form-group">
+          <label for="kInput">k (Kill rate)</label>
+          <input id="kInput" type="number" name="k" min="0.03" max="0.07" step="0.001" value="0.06" required>
+          <div class="hint">Recommended range: 0.03 – 0.07</div>
+        </div>
+
+        <div class="form-group">
+          <label for="uInput">u (Initial concentration)</label>
+          <input id="uInput" type="number" name="u_val" min="0.0" max="1.0" step="0.01" value="1.0" required>
+          <div class="hint">Typically between 0.5 – 1.0</div>
+        </div>
+
+        <div class="form-group">
+          <label for="vInput">v (Initial concentration)</label>
+          <input id="vInput" type="number" name="v_val" min="0.0" max="1.0" step="0.01" value="0.0" required>
+          <div class="hint">Typically between 0.0 – 0.5</div>
+        </div>
+
+        <button type="submit">Generate Pattern</button>
+      </form>
+    </div>
+
+    <!-- 🖼️ Right: Image Output -->
+    <div class="image-section">
+      <img id="patternImage" src="" alt="Generated pattern" style="display: none;" />
+    </div>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
